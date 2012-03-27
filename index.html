@@ -7,12 +7,32 @@
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-	<h1>Estudo da State Pattern em JavaScript</h1>
-	<div id="output"></div>
-	<aside>
-		<p>Estado: <strong id="state_name"></strong></p>
-		<ul id="avaliable_operations"></ul>
-	</aside>
+	<header>
+		<h1>Estudo da State Pattern em JavaScript</h1>
+		<p>Baseado no <a href="https://github.com/netojoaobatista/design-pattern.js/blob/master/behavioral/state/README.md" target="_blank">artigo do Neto</a></p>
+	</header>
+	<div id="main">
+		<div id="disclaimer">
+			<h2>Exemplo de uma aplicação com 4 estados</h2>
+			<dl>
+				<dt>Fechado:</dt>
+				<dd>Pode abrir.</dd>
+				<dt>Aberto</dt>
+				<dd>Pode fechar e pode autenticar.</dd>
+				<dt>Autenticado</dt>
+				<dd>Pode escrever e pode apagar, ambas geram espera. Pode fechar.</dd>
+				<dt>Em espera</dt>
+				<dd>Pode esperar xD</dd>
+			</dl>
+		</div>
+		<section id="app">
+			<div id="output"></div>
+			<aside>
+				<p>Estado: <strong id="state_name"></strong></p>
+				<ul id="avaliable_operations"></ul>
+			</aside>
+		</section>
+	</div>
 	<script src="states.js"></script>
 </body>
 </html>
