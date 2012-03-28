@@ -30,9 +30,23 @@
 			<aside>
 				<p>Estado: <strong id="state_name"></strong></p>
 				<ul id="avaliable_operations"></ul>
+				<button onclick="STATES_APP.escrever();">Escrever</button><button onclick="STATES_APP.apagar();">Apagar</button><button onclick="STATES_APP.esperar();">Esperar</button>
+				<form action="" id="auth_form">
+					<fieldset>
+						<legend>Autenticar</legend>
+						<label for="auth_code">Código de autenticação:</label>
+						<input type="text" id="auth_code" name="auth_code" required>
+						<input type="submit" value="Verificar">
+					</fieldset>
+				</form>
 			</aside>
 		</section>
 	</div>
-	<script src="states.js"></script>
+
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="js/states.js"></script>
+	<script>
+		
+	</script>
 </body>
 </html>
