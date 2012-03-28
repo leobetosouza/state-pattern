@@ -41,10 +41,16 @@ var STATES_APP = (function(global, window, document, $){
     function Aberto(){}
     Aberto.prototype = new PodeFechar("Aberto");
 
+    Aberto.prototype.autenticar = function(context) {
+        log("Entre o código de autenticação");
+        document.getElementById("auth_form").removeAttribute("hidden");
+
+    };
+
 
 
     function Autenticado(){}
-    Autenticado.prototype = new State("Autenticado");
+    Autenticado.prototype = new PodeFechar("Autenticado");
 
     Autenticado.prototype.escrever = function(context) {
         var text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis sagittis gravida. Sed iaculis pellentesque vulputate. Aliquam mauris lectus, cursus eu vehicula a, feugiat eu nisl. Quisque sit amet risus erat, sit amet lacinia dolor. Suspendisse ac est sem. Phasellus venenatis condimentum lectus nec venenatis. Proin magna sem, viverra porta pretium quis, varius ut nisi. In consectetur, purus id pellentesque sodales, neque turpis scelerisque est, eget eleifend dolor purus sit amet enim. Aenean malesuada, diam ac pretium tempus, risus est lacinia lectus, ac fringilla felis dui eu erat. Pellentesque sagittis magna ac odio mollis ut tristique mauris semper. Vestibulum in tellus vitae eros egestas feugiat in ut purus.";
@@ -92,7 +98,7 @@ var STATES_APP = (function(global, window, document, $){
 
 
     function changeStateTag(state){
-        document.getElementById("output").innerHTML = state;
+        document.getElementById("state_name").innerHTML = state;
     }
 
     function toOutput(text){
@@ -105,10 +111,17 @@ var STATES_APP = (function(global, window, document, $){
     var log_size = 0;
 
     function log(text){
-        var entry = document.createElement("p");
+        var log_element = document.getElementById("log"),
+            entry = document.createElement("p");
+        
         log_size++;
         entry.innerHTML = "$" + log_size + " " + text;
-        document.getElementById("log").appendChild(entry);
+
+        if (log_element.firstChild) {
+            log_element.insertBefore(entry,log_element.firstChild);
+        }else{
+            log_element.appendChild(entry);
+        }
     }
 
 
@@ -120,13 +133,12 @@ var STATES_APP = (function(global, window, document, $){
         }
 
         this.state = state;
-        
-            console.log(this.state.nome)
     }
 
     Context.prototype = {
         changeState: function(state){
             this.state = state;
+            changeStateTag(state.nome);
         },
 
         abrir: function() {
