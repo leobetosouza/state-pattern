@@ -37,19 +37,21 @@ var STATES_APP = (function(global, window, document, $, undefined){
 
     function abrir(context){
         toOutput("")
-        context.changeState(new Aberto());
+        //context.changeState(new Aberto());
     }
 
     function escrever(){
         var text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis sagittis gravida. Sed iaculis pellentesque vulputate. Aliquam mauris lectus, cursus eu vehicula a, feugiat eu nisl. Quisque sit amet risus erat, sit amet lacinia dolor. Suspendisse ac est sem. Phasellus venenatis condimentum lectus nec venenatis. Proin magna sem, viverra porta pretium quis, varius ut nisi. In consectetur, purus id pellentesque sodales, neque turpis scelerisque est, eget eleifend dolor purus sit amet enim. Aenean malesuada, diam ac pretium tempus, risus est lacinia lectus, ac fringilla felis dui eu erat. Pellentesque sagittis magna ac odio mollis ut tristique mauris semper. Vestibulum in tellus vitae eros egestas feugiat in ut purus.";
         toOutput(text);
+        //esperar
     }
 
     function apagar(){
         toOutput();
+        //esperar
     }
 
-    function esperar(){
+    function esperar(context){
         var n = 10,
         interval;
 
@@ -59,6 +61,7 @@ var STATES_APP = (function(global, window, document, $, undefined){
             n--;
             toOutput(n--);
             if (!n){
+                context.changeState(new Autenticado());
                 clearInterval(interval);
             }
         },1000);
@@ -85,6 +88,6 @@ var STATES_APP = (function(global, window, document, $, undefined){
         esperar: esperar
     };
 
-    return Fechado;
+    return public;
 
 })(this, window, document, jQuery);
