@@ -26,11 +26,13 @@
 			</dl>
 		</div>
 		<section id="app">
-			<div id="output"></div>
+			
 			<aside>
-				<p>Estado: <strong id="state_name"></strong></p>
-				<ul id="avaliable_operations"></ul>
-				<button onclick="STATES_APP.escrever();">Escrever</button><button onclick="STATES_APP.apagar();">Apagar</button><button onclick="STATES_APP.esperar();">Esperar</button>
+				<button onclick="STATES_APP.abrir();">Abrir</button>
+				<button onclick="STATES_APP.fechar();">Fechar</button>
+				<button onclick="STATES_APP.escrever();">Escrever</button>
+				<button onclick="STATES_APP.apagar();">Apagar</button>
+				<button onclick="STATES_APP.esperar();">Esperar</button>
 				<form action="" id="auth_form">
 					<fieldset>
 						<legend>Autenticar</legend>
@@ -40,13 +42,18 @@
 					</fieldset>
 				</form>
 			</aside>
+
+			<p>Estado: <strong id="state_name"></strong></p>
+			<div id="output"></div>
+			<div id="log"></div>
+
 		</section>
 	</div>
 
 	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 	<script src="js/states.js"></script>
 	<script>
-		
+		//STATES_APP.abrir();
 	</script>
 </body>
 </html>

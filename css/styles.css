@@ -30,8 +30,21 @@ header{
 	#output{
 		border:1px dashed orange;
 		color:#fff;
-		min-height:200px;
+		min-height:210px;
+		padding:20px;
+		margin-bottom:10px
+	}
+	#log{
+		border:1px dashed red;
+		color:red;
+		padding:0 20px;
+		font-size:12px;	
+		/*max-height:100px;
+		overflow-y:scroll;*/
+
 	}
 	fieldset{
-		border:1px dashed orange;
+		border:1px dashed white;
+		color:white;
+		margin-bottom:20px
 	}
